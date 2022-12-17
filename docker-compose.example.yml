@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  pastebin:
+    container_name: pastebin
+    image: bartosz11/bpasted:latest
+    restart: unless-stopped
+    ports:
+      - "4334:4334"
+    volumes:
+      - pastebin-data:/home/container
+
+volumes:
+  pastebin-data:
+    external: true

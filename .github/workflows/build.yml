@@ -1,0 +1,39 @@
+name: Build and release JAR
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v3
+      # setup tasks
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Set gradlew permissions
+        run: chmod u+x gradlew
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+            node-version: 18
+      # build tasks
+      - name: cd to frontend directory
+        run: cd frontend
+      - name: Install npm packages
+        run: npm install
+      - name: Build frontend
+        run: npm run build
+      - name: cd out of frontend directory
+        run: cd ..
+      - name: Move frontend files
+        run: mv frontend/dist/* src/main/resources/public/
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: shadowJar --no-daemon
