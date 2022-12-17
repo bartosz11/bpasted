@@ -29,6 +29,9 @@ jobs:
       - name: Build frontend
         run: npm run build
         working-directory: frontend
+        #ffs
+      - name: Create public directory
+        run: mkdir -p src/main/resources/public
       - name: Move frontend files
         run: mv frontend/dist/* src/main/resources/public/
       - name: Build with Gradle
