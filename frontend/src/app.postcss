@@ -1,0 +1,25 @@
+/* Write your global styles here, in PostCSS syntax */
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+    font-family: monospace;
+    overflow: hidden;
+    color: white;
+}
+
+button {
+    @apply bg-none border-transparent border-b-2 hover:border-orange-500;
+}
+
+.h-nav {
+    height: 4vh;
+}
+
+.h-view {
+    height: 96vh;
+}
