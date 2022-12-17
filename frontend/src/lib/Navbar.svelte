@@ -17,10 +17,8 @@
   }
 
   function upload() {
-    //JS is so stupid I just can't believe this works
-    //https://stackoverflow.com/questions/154059/how-do-i-check-for-an-empty-undefined-null-string-in-javascript
     if (inputValue !== undefined && inputValue !== null && inputValue !== "") {
-      fetch("http://localhost:4334/content/raw", {
+      fetch("/content/raw", {
         method: "POST",
         cache: "no-cache",
         //no need for content-type
@@ -38,7 +36,7 @@
 </script>
 
 <nav
-  class="sticky w-screen md:h-nav bg-neutral-900 text-orange-500 text-base underline-offset-4 flex flex-col md:flex-row"
+  class="sticky md:w-screen md:h-nav bg-neutral-900 text-orange-500 text-base flex flex-col md:flex-row"
 >
   <div class="my-1.5 mx-4">
     <button on:click={home}>bpasted</button>

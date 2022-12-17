@@ -4,7 +4,7 @@
   let readonly = id !== undefined;
   let value;
   if (readonly) {
-    fetch(`http://localhost:4334/content/raw/${id}`, {
+    fetch(`/content/raw/${id}`, {
       cache: "no-cache"
     }).then(response => {
       if (response.ok) {
