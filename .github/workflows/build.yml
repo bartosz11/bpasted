@@ -23,14 +23,12 @@ jobs:
         with:
             node-version: 18
       # build tasks
-      - name: cd to frontend directory
-        run: cd frontend
       - name: Install npm packages
         run: npm install
+        working-directory: frontend
       - name: Build frontend
         run: npm run build
-      - name: cd out of frontend directory
-        run: cd ..
+        working-directory: frontend
       - name: Move frontend files
         run: mv frontend/dist/* src/main/resources/public/
       - name: Build with Gradle
