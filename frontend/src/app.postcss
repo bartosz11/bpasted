@@ -7,19 +7,26 @@
 @tailwind utilities;
 
 body {
-    font-family: monospace;
-    overflow: hidden;
-    color: white;
+  font-family: monospace;
+  overflow: hidden;
+  color: white;
 }
 
 button {
-    @apply bg-none border-transparent border-b-2 hover:border-orange-500;
+  @apply bg-none border-transparent border-b-2 hover:border-orange-500;
 }
 
 .h-nav {
-    height: 4vh;
+  height: 4vh;
 }
 
 .h-view {
-    height: 96vh;
+  height: 96vh;
+}
+
+.svelte-toast-wrap {
+  --toastBackground: #404040;
+  --toastBarBackground: #fb923c;
+  font-family: sans-serif;
+  @apply text-sm;
 }
